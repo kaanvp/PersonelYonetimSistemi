@@ -1,9 +1,10 @@
 # Personel Yönetim Sistemi
 
 Personel Yönetim Sistemi, çalışanların giriş-çıkış kayıtlarını, izinlerini ve diğer personel yönetimi işlemlerini takip etmek için geliştirilmiş bir web uygulamasıdır.
-![Personeller Sayfası](‪C:\Users\vural\Desktop\personeller.jpg)
-![Fotoğraf Açıklaması](fotoğrafın/dosya/yolu.jpg)
-![Fotoğraf Açıklaması](fotoğrafın/dosya/yolu.jpg)
+
+![Personeller Sayfası](personeller.jpg)
+![İzinler Sayfası](izinler.jpg)
+![Giriş-Çıkış Kayıtları Sayfası](giriş-çıkış-kayıtları.jpg)
 ## Özellikler
 - **Personeller**: Personellerin eklenmesi,silinmesi ve güncellenmesi.
 - **Giriş/Çıkış Yönetimi**: Çalışanların giriş ve çıkış saatlerini kaydetme.
