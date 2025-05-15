@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|c:\\users\\vural\\source\\repos\\personelyonetimsisteminew\\models\\vardiya.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:models\\vardiya.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|c:\\users\\vural\\source\\repos\\personelyonetimsisteminew\\views\\istatistik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:views\\istatistik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|c:\\users\\vural\\source\\repos\\personelyonetimsisteminew\\views\\izinler\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:views\\izinler\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\views\\izinler\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:views\\izinler\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|c:\\users\\vural\\source\\repos\\personelyonetimsisteminew\\views\\personel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:views\\personel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|c:\\users\\vural\\source\\repos\\personelyonetimsisteminew\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D08E8D1-BB9B-4F1B-BC10-AFFDDC5E053A}|PersonelYonetimSistemiNew.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Vardiya.cs",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Models\\Vardiya.cs",
+              "RelativeDocumentMoniker": "Models\\Vardiya.cs",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Models\\Vardiya.cs",
+              "RelativeToolTip": "Models\\Vardiya.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAuwAgAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T19:07:18.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Istatistik\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Istatistik\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Istatistik\\Index.cshtml",
+              "RelativeToolTip": "Views\\Istatistik\\Index.cshtml",
+              "ViewState": "AQIAAFkAAAAAAAAAAIAwwGUAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T18:55:21.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Personel\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Personel\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Personel\\Index.cshtml",
+              "RelativeToolTip": "Views\\Personel\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T18:31:20.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAHwBAAAAAAAAAAAAAIUBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T17:53:01.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Izinler\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Izinler\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Izinler\\Index.cshtml",
+              "RelativeToolTip": "Views\\Izinler\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T12:54:15.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Izinler\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Izinler\\Create.cshtml",
+              "ToolTip": "C:\\Users\\vural\\source\\repos\\PersonelYonetimSistemiNew\\Views\\Izinler\\Create.cshtml",
+              "RelativeToolTip": "Views\\Izinler\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T12:54:12.938Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

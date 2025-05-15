@@ -1,0 +1,176 @@
+﻿@model PersonelYonetimSistemi.Models.Personel
+
+@{
+    ViewData["Title"] = "Personel Detayları";
+}
+
+<h1>Detaylar</h1>
+
+<div>
+    <h4>Personel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpNum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmpNum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MidName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MidName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TCKN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TCKN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateofBirth)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HireDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IBAN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IBAN)
+        </dd>
+        <dt class = "col-sm-2">
+            Departman
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Departman.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Pozisyon
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pozisyon.Name)
+        </dd>
+        <dt class="col-sm-2">CV</dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.CvFilePath))
+            {
+                <div class="btn-group">
+                    <a href="@Url.Content("~" + Model.CvFilePath)" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> CV İndir
+                    </a>
+                    <a href="@Url.Content("~" + Model.CvFilePath)" class="btn btn-info" target="_blank">
+                        <i class="fas fa-eye"></i> CV Görüntüle
+                    </a>
+                </div>
+            }
+            else
+            {
+                <span class="text-muted">CV yüklenmemiş</span>
+            }
+        </dd>
+        <dt class="col-sm-2">Sözleşme</dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.ContractFilePath))
+            {
+                <div class="btn-group">
+                    <a href="@Url.Content("~" + Model.ContractFilePath)" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Sözleşme İndir
+                    </a>
+                    <a href="@Url.Content("~" + Model.ContractFilePath)" class="btn btn-info" target="_blank">
+                        <i class="fas fa-eye"></i> Sözleşme Görüntüle
+                    </a>
+                </div>
+            }
+            else
+            {
+                <span class="text-muted">Sözleşme yüklenmemiş</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <div class="form-group text-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-lg mr-2">
+            <i class="fas fa-edit"></i> Düzenle
+        </a>
+        <a asp-action="Index" class="btn btn-secondary btn-lg ml-2">
+            <i class="fas fa-arrow-left"></i> Listeye Dön
+        </a>
+    </div>
+</div>
+
+

@@ -1,0 +1,76 @@
+@model IEnumerable<PersonelYonetimSistemi.Models.Pozisyon>
+@{
+    ViewData["Title"] = "Pozisyonlar";
+}
+
+<h1>Pozisyonlar</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Yeni Pozisyon Ekle</a>
+</p>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Pozisyon Listesi</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SalaryRange)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.JobDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequiredSkills)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalaryRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequiredSkills)
+                    </td>
+                    <td>
+                        <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                            @(item.IsActive ? "Aktif" : "Pasif")
+                        </span>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i> Düzenle
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                <i class="fas fa-info-circle"></i> Detay
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i> Sil
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

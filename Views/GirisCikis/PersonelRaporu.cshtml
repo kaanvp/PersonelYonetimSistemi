@@ -1,0 +1,174 @@
+@model IEnumerable<PersonelYonetimSistemi.Models.KullaniciHareketleri>
+@{
+    ViewData["Title"] = "Personel Giriş/Çıkış Raporu";
+    var personel = (PersonelYonetimSistemi.Models.Personel)ViewBag.Personel;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1 class="m-0">@(personel.FirstName + " " + personel.LastName) - Giriş/Çıkış Raporu</h1>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- Personel Bilgileri -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <strong>Sicil No:</strong>
+                        <p>@personel.EmpNum</p>
+                    </div>
+                    <div class="col-md-3">
+                        <strong>Departman:</strong>
+                        <p>@personel.Departman?.Name</p>
+                    </div>
+                    <div class="col-md-3">
+                        <strong>Pozisyon:</strong>
+                        <p>@personel.Pozisyon?.Name</p>
+                    </div>
+                    <div class="col-md-3">
+                        <strong>İşe Başlama Tarihi:</strong>
+                        <p>@personel.HireDate.ToString("dd.MM.yyyy")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarih Filtresi -->
+        <div class="card">
+            <div class="card-body">
+                <form method="get" class="row">
+                    <input type="hidden" name="personelId" value="@personel.Id" />
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Başlangıç Tarihi</label>
+                            <input type="date" name="baslangic" class="form-control" value="@ViewBag.Baslangic?.ToString("yyyy-MM-dd")">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Bitiş Tarihi</label>
+                            <input type="date" name="bitis" class="form-control" value="@ViewBag.Bitis?.ToString("yyyy-MM-dd")">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-filter"></i> Filtrele
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- İstatistikler -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-clock"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Zamanında Giriş</span>
+                        <span class="info-box-number">@Model.Count(x => x.Durum == "Zamanında")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-hourglass-half"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Geç Giriş</span>
+                        <span class="info-box-number">@Model.Count(x => x.Durum == "Geç Giriş")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="fas fa-sign-out-alt"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Erken Çıkış</span>
+                        <span class="info-box-number">@Model.Count(x => x.Durum == "Erken Çıkış")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-calendar-check"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Toplam Kayıt</span>
+                        <span class="info-box-number">@Model.Count()</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kayıtlar -->
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped" id="personel-rapor-table">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Giriş Zamanı</th>
+                            <th>Çıkış Zamanı</th>
+                            <th>Toplam Süre</th>
+                            <th>Durum</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var toplamSure = item.CikisZamani.HasValue 
+                                ? item.CikisZamani.Value - item.GirisZamani
+                                : TimeSpan.Zero;
+
+                            <tr>
+                                <td>@item.GirisZamani.ToString("dd.MM.yyyy")</td>
+                                <td>@item.GirisZamani.ToString("HH:mm")</td>
+                                <td>@(item.CikisZamani?.ToString("HH:mm") ?? "-")</td>
+                                <td>@(item.CikisZamani.HasValue ? $"{toplamSure.Hours:D2}:{toplamSure.Minutes:D2}" : "-")</td>
+                                <td>
+                                    @switch (item.Durum)
+                                    {
+                                        case "Zamanında":
+                                            <span class="badge badge-success">Zamanında</span>
+                                            break;
+                                        case "Geç Giriş":
+                                            <span class="badge badge-warning">Geç Giriş</span>
+                                            break;
+                                        case "Erken Çıkış":
+                                            <span class="badge badge-danger">Erken Çıkış</span>
+                                            break;
+                                        default:
+                                            <span class="badge badge-info">@item.Durum</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@(item.Aciklama ?? "-")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#personel-rapor-table').DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "order": [[0, "desc"], [1, "desc"]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,99 @@
+@model PersonelYonetimSistemiNew.Models.Izinler
+@{
+    ViewData["Title"] = "İzin Ekle";
+}
+
+<h1>Personele İzin Ekle</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="PersonelId" class="control-label">Personel</label>
+                <select asp-for="PersonelId" id="personelSelect" class="form-control" asp-items="ViewBag.Personeller"></select>
+                <span asp-validation-for="PersonelId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="PozisyonId" class="control-label">Pozisyon</label>
+                <select asp-for="PozisyonId" id="pozisyonSelect" class="form-control" asp-items="ViewBag.Pozisyonlar" readonly></select>
+                <span asp-validation-for="PozisyonId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">İzin Türü</label>
+                <select asp-for="Name" class="form-control">
+                    <option value="Yıllık İzin">Yıllık İzin</option>
+                    <option value="Sağlık İzni">Sağlık İzni</option>
+                    <option value="Mazeret İzni">Mazeret İzni</option>
+                    <option value="Doğum İzni">Doğum İzni</option>
+                    <option value="Evlilik İzni">Evlilik İzni</option>
+                    <option value="Ölüm İzni">Ölüm İzni</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="DateofStart" class="control-label">Başlangıç Tarihi</label>
+                <input asp-for="DateofStart" type="date" class="form-control" />
+                <span asp-validation-for="DateofStart" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="NumberofDays" class="control-label">Gün Sayısı</label>
+                <input asp-for="NumberofDays" type="number" class="form-control" min="1" />
+                <span asp-validation-for="NumberofDays" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="permitFile" class="control-label">İzin Belgesi</label>
+                <input name="permitFile" id="permitFile" type="file" class="form-control" accept=".pdf,.doc,.docx" />
+                <small class="form-text text-muted">PDF veya Word dosyası yükleyebilirsiniz. (Max. 5MB)</small>
+            </div>
+            
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Listeye Dön
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Personel-Pozisyon eşleştirme verileri
+        const personelPozisyonMap = @Html.Raw(Json.Serialize(ViewBag.PersonelPozisyonMap ?? new Dictionary<int, int>()));
+        
+        // Personel seçildiğinde pozisyonu otomatik getir
+        document.getElementById('personelSelect').addEventListener('change', function() {
+            const personelId = parseInt(this.value);
+            const pozisyonSelect = document.getElementById('pozisyonSelect');
+            
+            if (personelId && personelPozisyonMap[personelId]) {
+                pozisyonSelect.value = personelPozisyonMap[personelId];
+                // Pozisyon alanını salt-okunur yap
+                pozisyonSelect.setAttribute('disabled', 'disabled');
+            } else {
+                // Eğer eşleşme yoksa, pozisyon seçimini serbest bırak
+                pozisyonSelect.removeAttribute('disabled');
+            }
+        });
+        
+        // Sayfa yüklendiğinde de kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            const personelSelect = document.getElementById('personelSelect');
+            if (personelSelect.value) {
+                personelSelect.dispatchEvent(new Event('change'));
+            }
+        });
+    </script>
+}

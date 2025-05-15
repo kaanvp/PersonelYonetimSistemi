@@ -1,0 +1,64 @@
+@model PersonelYonetimSistemiNew.Models.Izinler
+@{
+    ViewData["Title"] = "İzin Sil";
+}
+
+<h1>İzin Kaydını Sil</h1>
+
+<div class="alert alert-danger">
+    <h4>Bu izin kaydını silmek istediğinizden emin misiniz?</h4>
+    <p>Bu işlem geri alınamaz!</p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Silinecek İzin Bilgileri</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Personel:</dt>
+            <dd class="col-sm-9">@(Model.Personel?.FirstName) @(Model.Personel?.LastName)</dd>
+
+            <dt class="col-sm-3">Pozisyon:</dt>
+            <dd class="col-sm-9">@(Model.Pozisyon?.Name)</dd>
+
+            <dt class="col-sm-3">İzin Türü:</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Başlangıç Tarihi:</dt>
+            <dd class="col-sm-9">@Model.DateofStart.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-3">Gün Sayısı:</dt>
+            <dd class="col-sm-9">@Model.NumberofDays gün</dd>
+
+            <dt class="col-sm-3">Bitiş Tarihi:</dt>
+            <dd class="col-sm-9">@Model.DateofEnd.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-3">Durum:</dt>
+            <dd class="col-sm-9">
+                @if (Model.Status == "Onaylandı")
+                {
+                    <span class="badge bg-success">Onaylandı</span>
+                }
+                else if (Model.Status == "Reddedildi")
+                {
+                    <span class="badge bg-danger">Reddedildi</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">Bekliyor</span>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" class="mt-3">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">
+        <i class="fas fa-trash"></i> İzni Sil
+    </button>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> İptal Et
+    </a>
+</form>

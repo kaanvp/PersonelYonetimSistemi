@@ -1,0 +1,19 @@
+@model PersonelYonetimSistemi.Models.Pozisyon
+@{
+    ViewData["Title"] = "Pozisyon Sil";
+}
+
+<h1>Pozisyon Sil</h1>
+
+<h3>Bu pozisyonu silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>@Model.Name</h4>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    </div>
+</form>

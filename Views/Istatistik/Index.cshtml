@@ -1,0 +1,171 @@
+@{
+    ViewData["Title"] = "İstatistikler";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">İstatistikler</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- Özet Kartları -->
+        <div class="row">
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.ToplamPersonel</h3>
+                        <p>Toplam Personel</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.ToplamDepartman</h3>
+                        <p>Toplam Departman</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@ViewBag.ToplamPozisyon</h3>
+                        <p>Toplam Pozisyon</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafikler -->
+        <div class="row">
+            <!-- Departman Dağılımı -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Departmanlara Göre Personel Dağılımı</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="departmanChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pozisyon Dağılımı -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pozisyonlara Göre Personel Dağılımı</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="pozisyonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- İzin Dağılımı -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">İzin Dağılımı</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="izinChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        // Departman grafiği
+        var departmanCtx = document.getElementById('departmanChart').getContext('2d');
+        var departmanData = {
+            labels: @Json.Serialize(ViewBag.DepartmanLabels),
+            datasets: [{
+                data: @Json.Serialize(ViewBag.DepartmanData),
+                backgroundColor: [
+                    '#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de',
+                    '#e83e8c', '#fd7e14', '#6f42c1', '#20c997', '#6c757d', '#17a2b8'
+                ]
+            }]
+        };
+        new Chart(departmanCtx, {
+            type: 'pie',
+            data: departmanData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+
+        // Pozisyon grafiği
+        var pozisyonCtx = document.getElementById('pozisyonChart').getContext('2d');
+        var pozisyonData = {
+            labels: @Json.Serialize(ViewBag.PozisyonLabels),
+            datasets: [{
+                label: 'Personel Sayısı',
+                data: @Json.Serialize(ViewBag.PozisyonData),
+                backgroundColor: '#00a65a',
+                borderColor: '#00a65a',
+                borderWidth: 1
+            }]
+        };
+        new Chart(pozisyonCtx, {
+            type: 'bar',
+            data: pozisyonData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { stepSize: 1 }
+                    }
+                }
+            }
+        });
+
+        // İzin grafiği
+        var izinCtx = document.getElementById('izinChart').getContext('2d');
+        var izinData = {
+            labels: @Json.Serialize(ViewBag.IzinLabels),
+            datasets: [{
+                label: 'İzin Sayısı',
+                data: @Json.Serialize(ViewBag.IzinData),
+                backgroundColor: [
+                    '#f56954', '#00a65a', '#f39c12', '#00c0ef'
+                ]
+            }]
+        };
+        new Chart(izinCtx, {
+            type: 'doughnut',
+            data: izinData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+    </script>
+}

@@ -1,0 +1,38 @@
+@model PersonelYonetimSistemi.Models.Pozisyon
+@{
+    ViewData["Title"] = "Yeni Pozisyon Ekle";
+}
+
+<h1>Yeni Pozisyon Ekle</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SalaryRange" class="control-label"></label>
+        <input asp-for="SalaryRange" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="JobDescription" class="control-label"></label>
+        <textarea asp-for="JobDescription" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequiredSkills" class="control-label"></label>
+        <textarea asp-for="RequiredSkills" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsActive" class="control-label"></label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+    <input type="submit" value="Kaydet" class="btn btn-primary" />
+</form>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

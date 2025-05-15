@@ -1,0 +1,103 @@
+@model IEnumerable<PersonelYonetimSistemiNew.Models.Izinler>
+@{
+    ViewData["Title"] = "İzin Yönetimi";
+}
+
+<h1>Personel İzin Bilgileri</h1>
+
+<div class="btn-group mb-3">
+    <a asp-action="Index" asp-route-filter="Tümü" class="btn @(ViewBag.CurrentFilter == "Tümü" || ViewBag.CurrentFilter == null ? "btn-primary" : "btn-outline-primary")">Tümü</a>
+    <a asp-action="Index" asp-route-filter="Onaylanan" class="btn @(ViewBag.CurrentFilter == "Onaylanan" ? "btn-success" : "btn-outline-success")">Onaylanan</a>
+    <a asp-action="Index" asp-route-filter="Reddedilen" class="btn @(ViewBag.CurrentFilter == "Reddedilen" ? "btn-danger" : "btn-outline-danger")">Reddedilen</a>
+    <a asp-action="Index" asp-route-filter="Onay Bekleyen" class="btn @(ViewBag.CurrentFilter == "Onay Bekleyen" ? "btn-warning" : "btn-outline-warning")">Onay Bekleyen</a>
+    <a asp-action="Create" class="btn btn-info">Personele İzin Ekle</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Durum</th>
+                <th>Personel</th>
+                <th>Pozisyon</th>
+                <th>İzin Türü</th>
+                <th>Başlangıç Tarihi</th>
+                <th>Gün Sayısı</th>
+                <th>Bitiş Tarihi</th>
+                <th>İzin Dosyası</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.Status == "Onaylandı")
+                        {
+                            <span class="badge bg-success">Onaylandı</span>
+                        }
+                        else if (item.Status == "Reddedildi")
+                        {
+                            <span class="badge bg-danger">Reddedildi</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Bekliyor</span>
+                        }
+                    </td>
+                    <td>@(item.Personel?.FirstName) @(item.Personel?.LastName)</td>
+                    <td>@(item.Pozisyon?.Name)</td>
+                    <td>@item.Name</td>
+                    <td>@item.DateofStart.ToString("dd.MM.yyyy")</td>
+                    <td>@item.NumberofDays</td>
+                    <td>@item.DateofEnd.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.PermitFile))
+                        {
+                            <a href="@Url.Content("~" + item.PermitFile)" class="btn btn-sm btn-primary" target="_blank">
+                                <i class="fas fa-eye"></i> Görüntüle
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Dosya yok</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i> Düzenle
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                <i class="fas fa-info-circle"></i> Detay
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i> Sil
+                            </a>
+                        </div>
+                        @if (item.Status == "Bekliyor")
+                        {
+                            <div class="mt-1">
+                                <form asp-action="ChangeStatus" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <input type="hidden" name="status" value="Onaylandı" />
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        <i class="fas fa-check"></i> Onayla
+                                    </button>
+                                </form>
+                                <form asp-action="ChangeStatus" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <input type="hidden" name="status" value="Reddedildi" />
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-times"></i> Reddet
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

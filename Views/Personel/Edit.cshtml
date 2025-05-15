@@ -1,0 +1,122 @@
+﻿@model PersonelYonetimSistemi.Models.Personel
+@{
+    ViewData["Title"] = "Personel Düzenle";
+}
+
+<h1>Personel Düzenle</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="EmpNum">Personel Numarası</label>
+        <input type="text" class="form-control" id="EmpNum" asp-for="EmpNum" required />
+    </div>
+    <div class="form-group">
+        <label for="FirstName">Ad</label>
+        <input type="text" class="form-control" id="FirstName" asp-for="FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="MidName">İkinci Ad</label>
+        <input type="text" class="form-control" id="MidName" asp-for="MidName" />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Soyad</label>
+        <input type="text" class="form-control" id="LastName" asp-for="LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="TCKN">TCKN</label>
+        <input type="text" class="form-control" id="TCKN" asp-for="TCKN" required />
+    </div>
+    <div class="form-group">
+        <label for="Gender">Cinsiyet</label>
+        <input type="text" class="form-control" id="Gender" asp-for="Gender" required />
+    </div>
+    <div class="form-group">
+        <label for="MaritalStatus">Medeni Hal</label>
+        <input type="text" class="form-control" id="MaritalStatus" asp-for="MaritalStatus" required />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Telefon Numarası</label>
+        <input type="text" class="form-control" id="PhoneNumber" asp-for="PhoneNumber" required />
+    </div>
+    <div class="form-group">
+        <label for="EmailAddress">Email</label>
+        <input type="email" class="form-control" id="EmailAddress" asp-for="EmailAddress" required />
+    </div>
+    <div class="form-group">
+        <label for="DateofBirth">Email</label>
+        <input type="date" class="form-control" id="DateofBirth" asp-for="DateofBirth" required />
+    </div>
+    <div class="form-group">
+        <label for="Address">Adres</label>
+        <textarea class="form-control" id="Address" asp-for="Address" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="City">Şehir</label>
+        <input type="text" class="form-control" id="City" asp-for="City" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmanId" class="control-label"></label>
+        <select asp-for="DepartmanId" class="form-control">
+            <option value="">Departman Seçiniz</option>
+            @foreach (var item in ViewBag.Departmanlar)
+            {
+                <option value="@item.Id" selected="@(item.Id == Model.DepartmanId ? "selected" : null)">@item.Name</option>
+            }
+        </select>
+        <span asp-validation-for="DepartmanId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PozisyonId" class="control-label"></label>
+        <select asp-for="PozisyonId" class="form-control">
+            <option value="">Pozisyon Seçiniz</option>
+            @foreach (var item in ViewBag.Pozisyonlar)
+            {
+                <option value="@item.Id" selected="@(item.Id == Model.PozisyonId ? "selected" : null)">@item.Name</option>
+            }
+        </select>
+        <span asp-validation-for="PozisyonId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Salary">Maaş</label>
+        <input type="text" class="form-control" id="Salary" asp-for="Salary" required />
+    </div>
+    <div class="form-group">
+        <label for="IBAN">IBAN</label>
+        <input type="text" class="form-control" id="IBAN" asp-for="IBAN" required />
+    </div>
+    <div class="form-group">
+        <label for="BankName">Banka Adı</label>
+        <input type="text" class="form-control" id="BankName" asp-for="BankName" required />
+    </div>
+    <div class="form-group">
+        <label for="HireDate">İşe Giriş Tarihi</label>
+        <input type="date" class="form-control" id="HireDate" asp-for="HireDate" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="CvFile">CV Yükle (PDF/Word, max 5MB):</label>
+        <input type="file" name="CvFile" class="form-control" accept=".pdf,.doc,.docx" />
+        @if (!string.IsNullOrEmpty(Model.CvFilePath))
+        {
+            <p>Mevcut CV: <a href="@Model.CvFilePath" target="_blank">CV İndir</a></p>
+        }
+    </div>
+    <div class="form-group">
+        <label for="ContractFile">Sözleşme Yükle (PDF, max 5MB):</label>
+        <input type="file" name="ContractFile" class="form-control" accept=".pdf" />
+        @if (!string.IsNullOrEmpty(Model.ContractFilePath))
+        {
+            <p>Mevcut Sözleşme: <a href="@Model.ContractFilePath" target="_blank">Sözleşme İndir</a></p>
+        }
+    </div>
+    <div class="form-group text-center mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="fas fa-save"></i> Kaydet
+        </button>
+        <a asp-action="Index" class="btn btn-secondary btn-lg ml-2">
+            <i class="fas fa-arrow-left"></i> Listeye Dön
+        </a>
+    </div>
+</form>

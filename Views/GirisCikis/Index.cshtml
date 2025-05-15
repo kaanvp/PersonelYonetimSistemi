@@ -1,0 +1,196 @@
+@model IEnumerable<PersonelYonetimSistemi.Models.KullaniciHareketleri>
+@{
+    ViewData["Title"] = "Giriş/Çıkış Kayıtları";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1 class="m-0">Giriş/Çıkış Kayıtları</h1>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- Özet Kartları -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.ToplamGiris</h3>
+                        <p>Toplam Kayıt</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.ZamanindaGiris</h3>
+                        <p>Zamanında Giriş</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@ViewBag.GecGiris</h3>
+                        <p>Geç Giriş</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@ViewBag.ErkenCikis</h3>
+                        <p>Erken Çıkış</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtreler -->
+        <div class="card">
+            <div class="card-body">
+                <form method="get" class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Başlangıç Tarihi</label>
+                            <input type="date" name="baslangic" class="form-control" value="@ViewBag.Baslangic">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Bitiş Tarihi</label>
+                            <input type="date" name="bitis" class="form-control" value="@ViewBag.Bitis">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Personel Adı</label>
+                            <input type="text" name="personelAdi" class="form-control" value="@ViewBag.PersonelAdi" placeholder="Personel adı...">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Durum</label>
+                            <select name="durum" class="form-control">
+                                <option value="">Tümü</option>
+                                @if (ViewBag.Durum == "Zamanında")
+                                {
+                                    <option value="Zamanında" selected>Zamanında</option>
+                                }
+                                else
+                                {
+                                    <option value="Zamanında">Zamanında</option>
+                                }
+                                
+                                @if (ViewBag.Durum == "Geç Giriş")
+                                {
+                                    <option value="Geç Giriş" selected>Geç Giriş</option>
+                                }
+                                else
+                                {
+                                    <option value="Geç Giriş">Geç Giriş</option>
+                                }
+                                
+                                @if (ViewBag.Durum == "Erken Çıkış")
+                                {
+                                    <option value="Erken Çıkış" selected>Erken Çıkış</option>
+                                }
+                                else
+                                {
+                                    <option value="Erken Çıkış">Erken Çıkış</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Kayıtlar Tablosu -->
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped" id="giris-cikis-table">
+                    <thead>
+                        <tr>
+                            <th>Personel</th>
+                            <th>Giriş Zamanı</th>
+                            <th>Çıkış Zamanı</th>
+                            <th>Durum</th>
+                            <th>IP Adresi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Personel?.FirstName @item.Personel?.LastName</td>
+                                <td>@item.GirisZamani.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>@(item.CikisZamani?.ToString("dd.MM.yyyy HH:mm") ?? "-")</td>
+                                <td>
+                                    @switch (item.Durum)
+                                    {
+                                        case "Zamanında":
+                                            <span class="badge badge-success">Zamanında</span>
+                                            break;
+                                        case "Geç Giriş":
+                                            <span class="badge badge-warning">Geç Giriş</span>
+                                            break;
+                                        case "Erken Çıkış":
+                                            <span class="badge badge-danger">Erken Çıkış</span>
+                                            break;
+                                        default:
+                                            <span class="badge badge-info">@item.Durum</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@(item.IpAdresi ?? "-")</td>
+                                <td>
+                                    <a href="@Url.Action("PersonelRaporu", new { personelId = item.PersonelId })" class="btn btn-info btn-sm">
+                                        <i class="fas fa-file-alt"></i> Rapor
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#giris-cikis-table').DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "order": [[1, "desc"]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                }
+            });
+        });
+    </script>
+}

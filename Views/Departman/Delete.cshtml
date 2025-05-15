@@ -1,0 +1,19 @@
+@model PersonelYonetimSistemi.Models.Departman
+@{
+    ViewData["Title"] = "Departman Sil";
+}
+
+<h1>Departman Sil</h1>
+
+<h3>Bu departmanı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>@Model.Name</h4>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    </div>
+</form>

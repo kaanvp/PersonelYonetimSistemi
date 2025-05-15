@@ -1,0 +1,131 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PersonelYonetimSistemiNew
+build_property.RootNamespace = PersonelYonetimSistemiNew
+build_property.ProjectDir = C:\Users\vural\Desktop\projects\PersonelYonetimSistemiNew\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\vural\Desktop\projects\PersonelYonetimSistemiNew
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Departman/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWFuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Departman/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWFuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Departman/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWFuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Departman/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWFuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/GirisCikis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNDaWtpc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/GirisCikis/PersonelRaporu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNDaWtpc1xQZXJzb25lbFJhcG9ydS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Istatistik/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXN0YXRpc3Rpa1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Izinler/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXppbmxlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Izinler/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXppbmxlclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Izinler/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXppbmxlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Izinler/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXppbmxlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Izinler/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXppbmxlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Personel/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Personel/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Personel/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Personel/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Personel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Pozisyon/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG96aXN5b25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Pozisyon/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG96aXN5b25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Pozisyon/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG96aXN5b25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Pozisyon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG96aXN5b25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vural/Desktop/projects/PersonelYonetimSistemiNew/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-tam176bgvs
